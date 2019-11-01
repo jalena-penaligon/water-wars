@@ -23,10 +23,16 @@ describe "Users API" do
     wl4 = user2.water_logs.create(oz: 16)
     wl5 = user2.water_logs.create(oz: 5)
     get '/api/v1/users'
-    binding.pry
 
     expect(response).to be_successful
     users = JSON.parse(response.body)
     expect(users.count).to eq(2)
+  end
+
+  it "can create a new user" do
+    body =  {user: {email: 'test@gmail.com'}}
+
+    post "/api/v1/users", params: body
+    expect(User.last.email).to eq("test@gmail.com")
   end
 end
