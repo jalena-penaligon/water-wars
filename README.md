@@ -1,24 +1,41 @@
-# README
+## Instructions
+  ### Available Endpoints:
+  #### GET https://waterwars.guildeducation.com/api/v1/users
+      Sample Response:
+      {
+        "jalena.taylor@guildeducation.com": 15,
+        "april.dagonese@guildeducation.com": 20
+      }
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  #### POST https://waterwars.guildeducation.com/api/v1/users
+      Headers:
+        Content-Type: application/json
+        Accept: application/json
+      Body:
+        {
+        	"user": {"email": "test@gmail.com"}
+        }
 
-Things you may want to cover:
+      Sample Response:
+      {
+        "jalena.taylor@guildeducation.com": 15,
+        "april.dagonese@guildeducation.com": 20,
+        "test@gmail.com": 0
+      }
 
-* Ruby version
+  #### POST https://waterwars.guildeducation.com/api/v1/users/water
+      Headers:
+        Content-Type: application/json
+        Accept: application/json
+      Body:
+        {
+        	"email": "test@gmail.com",
+          "oz": 15
+        }
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+      Sample Response:
+      {
+        "jalena.taylor@guildeducation.com": 15,
+        "april.dagonese@guildeducation.com": 20,
+        "test@gmail.com": 15
+      }
