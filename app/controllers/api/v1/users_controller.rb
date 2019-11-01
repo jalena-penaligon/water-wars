@@ -9,5 +9,4 @@ class Api::V1::UsersController < ApplicationController
     render status: 201,
     json: User.daily_water
   end
-
 end
